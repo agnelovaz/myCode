@@ -22,22 +22,17 @@ void printMap(int size_x, int size_y, const char map[10][11])
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-}
-
+};
+public:
 class Position
 {
-	int x;
-	int y;
-	
-	public:
-};
+  public:
+	  int x;
+	  int y;
 
-Position::Position (int xValue, int yValue)
-{
-	x = xValue;
-	y = yValue;
+  public:
+    Position(int xValue, int yValue) : x(xValue), y(yValue){}
 };
-
 bool visited[10][11];
 
 Position queue[1000];
@@ -47,7 +42,7 @@ int queueTail =0;
 Position popHead()
 {
 	Position head(queue[queueHead].x, queue[queueTail].y);
-	
+
 	queueHead++;
 	return head;
 
@@ -97,14 +92,14 @@ void addPositionToQueue(int x, int y, int size_x, int size_y, const char map[10]
 	if (x<0 && x>size_x && y<0 && y>size_y)
 	{
 		return;
-	} 
+	}
 
 	if ( map[x,y] == "#")
 	{
 		return;
 	}
 
-	
+
 	pushTail(Position(x,y));
 }
 
